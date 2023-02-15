@@ -1,18 +1,38 @@
 export interface IEmployeeModel{
   id? : string;
   name : string;
-  contractStart : string; //date format "yyyy-dd-MM"
+  /**
+   * date format "yyyy-dd-MM"
+   */
+  contractStart : string;
   position? : string;
   currentSalary : number;
   state? : boolean;
-  lastSalaryUpdated? : string; //date format "yyyy-dd-MM"
+  /**
+   * date format "yyyy-dd-MM"
+   */
+  lastSalaryUpdated? : string;
 }
 
-export interface IUpdateEmployee{
+
+
+export interface IUpdateEmployeeModel{
   id: string;
   position? : string;
   updateSalary : number;
-  modificationDate : string // date format "yyyy-dd-MM"
+
+  /**
+   * date format "yyyy-dd-MM"
+   */
+  modificationDate : string
 }
+
+export interface IEmployeePageResponse{
+  totalPages : number;
+  results : number;
+  remainingResults : number;
+  employees?: IEmployeeModel[];
+}
+
 
 
