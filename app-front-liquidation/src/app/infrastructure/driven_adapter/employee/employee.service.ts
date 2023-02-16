@@ -5,11 +5,11 @@ import {
   IEmployeePageResponse,
   IUpdateEmployeeModel
 } from "../../../domain/models/employee/employee.model";
-import {Observable} from "rxjs";
+import {Observable, of, throwError} from "rxjs";
 import {IResponseExceptionModel} from "../../../domain/models/exceptions/exception.model";
 import {IPaginationEmployeeModel} from "../../../domain/models/pagination/pagination.model";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import * as http from "http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,13 @@ export class EmployeeService extends EmployeeGateway{
   }
 
   createEmployee(model: IEmployeeModel): Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]> {
-    return this.http.post<IEmployeeModel | IResponseExceptionModel |
-      IResponseExceptionModel[]>(this.apiUrl, model, {headers : this.httpHeaders});
+    return this.http.post<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]>(this.apiUrl, model, { headers: this.httpHeaders })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+            // Si el error es un error 400, se retorna la respuesta del backend tal como viene.
+            return of(error.error);
+        })
+      );
   }
 
   findEmployee(id: string): Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]> {

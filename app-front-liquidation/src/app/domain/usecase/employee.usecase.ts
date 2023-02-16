@@ -14,13 +14,17 @@ export class EmployeeUseCase{
   constructor(private employeeGateway : EmployeeGateway) {
   }
 
-  createEmployee(model : IEmployeeModel)
-    : Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
+  createEmployee(model: IEmployeeModel):
+    Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]> {
     return this.employeeGateway.createEmployee(model).pipe(
-      catchError(() => {
-        return of(null);
+      catchError(error => {
+        const errorResponse: IResponseExceptionModel = {
+          status: error.status,
+          message: error.message,
+        };
+        return of(errorResponse);
       })
-    )
+    );
   }
 
   updateEmployee(model : IUpdateEmployeeModel)
