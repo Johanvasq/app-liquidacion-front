@@ -14,9 +14,13 @@ export class SalaryUseCase {
   modificationSalariesEmployee(id : string)
     : Observable<ISalaryModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
     return this.salaryGateway.modificationSalariesEmployee(id).pipe(
-      catchError(() => {
-        return of(null);
+      catchError(error => {
+        const errorResponse: IResponseExceptionModel = {
+          status: error.status,
+          message: error.message,
+        };
+        return of(errorResponse);
       })
-    )
+    );
   }
 }

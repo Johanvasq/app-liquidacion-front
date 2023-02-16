@@ -20,27 +20,39 @@ export class LiquidationUseCase{
   createLiquidationOfEmployee(model : ILiquidationRequestModel)
     : Observable<ILiquidationModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
     return this.liquidationGateway.createLiquidationOfEmployee(model).pipe(
-      catchError(() => {
-        return of(null);
+      catchError(error => {
+        const errorResponse: IResponseExceptionModel = {
+          status: error.status,
+          message: error.message,
+        };
+        return of(errorResponse);
       })
-    )
+    );
   }
 
   findLiquidationOfEmployee(id : string)
     : Observable<ILiquidationModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
     return this.liquidationGateway.findLiquidationOfEmployee(id).pipe(
-      catchError(() => {
-        return of(null)
+      catchError(error => {
+        const errorResponse: IResponseExceptionModel = {
+          status: error.status,
+          message: error.message,
+        };
+        return of(errorResponse);
       })
-    )
+    );
   }
 
   findLiquidations(model  : IPaginationLiquidationModel)
     : Observable<ILiquidationPageResponse | IResponseExceptionModel | IResponseExceptionModel[] | null>{
     return this.liquidationGateway.findLiquidations(model).pipe(
-      catchError(() => {
-        return of(null);
+      catchError(error => {
+        const errorResponse: IResponseExceptionModel = {
+          status: error.status,
+          message: error.message,
+        };
+        return of(errorResponse);
       })
-    )
+    );
   }
 }

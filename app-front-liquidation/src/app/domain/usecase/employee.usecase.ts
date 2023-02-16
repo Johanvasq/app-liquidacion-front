@@ -30,27 +30,39 @@ export class EmployeeUseCase{
   updateEmployee(model : IUpdateEmployeeModel)
     : Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
     return this.employeeGateway.updateEmployee(model).pipe(
-      catchError(() => {
-        return of(null);
+      catchError(error => {
+        const errorResponse: IResponseExceptionModel = {
+          status: error.status,
+          message: error.message,
+        };
+        return of(errorResponse);
       })
-    )
+    );
   }
 
   findEmployee(id : string) : Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
     return this.employeeGateway.findEmployee(id).pipe(
-      catchError(() => {
-        return of(null);
+      catchError(error => {
+        const errorResponse: IResponseExceptionModel = {
+          status: error.status,
+          message: error.message,
+        };
+        return of(errorResponse);
       })
-    )
+    );
   }
 
   findEmployeeBySalaryRange(model : IPaginationEmployeeModel)
     : Observable<IEmployeePageResponse | IResponseExceptionModel | IResponseExceptionModel[] | null>{
     return this.employeeGateway.findEmployeeBySalaryRange(model).pipe(
-      catchError(() => {
-        return of(null);
+      catchError(error => {
+        const errorResponse: IResponseExceptionModel = {
+          status: error.status,
+          message: error.message,
+        };
+        return of(errorResponse);
       })
-    )
+    );
   }
 
 }
