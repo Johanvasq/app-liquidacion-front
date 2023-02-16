@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
 import {IResponseExceptionModel} from "../../../domain/models/exceptions/exception.model";
 import {IPaginationEmployeeModel} from "../../../domain/models/pagination/pagination.model";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import * as http from "http";
 
 @Injectable({
   providedIn: 'root'
@@ -24,18 +25,26 @@ export class EmployeeService extends EmployeeGateway{
   }
 
   createEmployee(model: IEmployeeModel): Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]> {
-    return undefined;
+    return this.http.post<IEmployeeModel | IResponseExceptionModel |
+      IResponseExceptionModel[]>(this.apiUrl, model, {headers : this.httpHeaders});
   }
 
   findEmployee(id: string): Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]> {
-    return undefined;
+    return this.http.get<IEmployeeModel | IResponseExceptionModel |
+      IResponseExceptionModel[]>(`${this.apiUrl}/${id}`, {
+        headers : this.httpHeaders
+    });
   }
 
   findEmployeeBySalaryRange(model: IPaginationEmployeeModel): Observable<IEmployeePageResponse | IResponseExceptionModel | IResponseExceptionModel[]> {
-    return undefined;
+    return this.http.post<IEmployeePageResponse | IResponseExceptionModel |
+      IResponseExceptionModel[]>(`${this.apiUrl}/salary-range`, model, {
+        headers: this.httpHeaders,
+      });
   }
 
   updateEmployee(model: IUpdateEmployeeModel): Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]> {
-    return undefined;
+    return this.http.put<IEmployeeModel | IResponseExceptionModel |
+      IResponseExceptionModel[]>(this.apiUrl, model, {headers : this.httpHeaders});
   }
 }
