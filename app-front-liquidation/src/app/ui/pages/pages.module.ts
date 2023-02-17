@@ -11,12 +11,19 @@ import {EmployeeGateway} from "../../domain/models/gateways/employee.gateway";
 import {EmployeeService} from "../../infrastructure/driven_adapter/employee/employee.service";
 import {SalaryGateway} from "../../domain/models/gateways/salary.gateway";
 import {SalaryService} from "../../infrastructure/driven_adapter/salary/salary.service";
-import { HomeComponent } from './home/home.component';
+
+import { EmployeesComponent } from './employees/employees.component';
+import { LiquidationComponent } from './liquidation/liquidation.component';
+import {HomeComponent} from "./home/home.component";
+import {ComponentsModule} from "../components/components.module";
+
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    EmployeesComponent,
+    LiquidationComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +31,8 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     DomainModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ],
   exports: [
     HomeComponent

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {EmployeeUseCase} from "../../../domain/usecase/employee.usecase";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +7,7 @@ import {EmployeeUseCase} from "../../../domain/usecase/employee.usecase";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private employeeUseCase: EmployeeUseCase) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
