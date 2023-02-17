@@ -53,7 +53,11 @@ export class RegisterFormComponent implements OnInit {
     console.log(model)
     this.employeeUseCase.createEmployee(model).subscribe( result => {
       if ("name" in result && "id" in result) {
-        console.log(`Employee register successfully ${result}`)
+        this._snackBar.open(`Employee register successfully`,"", {
+          duration: 5000,
+          horizontalPosition: "center",
+          verticalPosition: "bottom"
+        });
       }else {
         this.error(result);
       }
@@ -64,7 +68,7 @@ export class RegisterFormComponent implements OnInit {
     if (Array.isArray(error)){
       let message = "";
       for (let err of error){
-        message = message.concat(`${err.message}\n \n`);
+        message = message.concat(`${err.message}\n  \n `);
       }
       this._snackBar.open(`${message}`,"", {
         duration: 5000,
@@ -87,9 +91,22 @@ export class RegisterFormComponent implements OnInit {
     }
   }
 
-  formatDate(date: string) : string{
-    let d = new Date(this.form.value.contractStart);
-    return  `${d.getFullYear()}/${d.getDate()}/${d.getMonth() + 1}`;
+  formatDate(date: string): string {
+    let d = new Date(date);
+    let year = d.getFullYear();
+    let month = d.getMonth() + 1;
+    let day = d.getDate();
+
+    let fMonth : string = month.toString()
+    let fDay : string = day.toString()
+    if (month < 10) {
+      fMonth = '0' + month.toString();
+    }
+    if (day < 10) {
+      fDay = '0' + day.toString();
+    }
+
+    return `${year}/${fDay}/${fMonth}`;
   }
 
 
