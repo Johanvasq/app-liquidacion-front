@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from "@angular/material/icon";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -33,6 +34,7 @@ import {MatIconModule} from "@angular/material/icon";
     MatSnackBarModule,
     MatToolbarModule,
     MatIconModule,
+    RouterModule,
   ],
   exports: [
     NavbarComponent,
