@@ -8,10 +8,12 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {ReactiveFormsModule} from "@angular/forms";
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from "@angular/material/icon";
 import {RouterModule} from "@angular/router";
+import {MatTableModule} from '@angular/material/table';
+import { TableEmployeeComponent } from './table-employee/table-employee.component';
+
 
 
 
@@ -23,6 +25,7 @@ import {RouterModule} from "@angular/router";
     NavbarComponent,
     WelcomeBarComponent,
     RegisterFormComponent,
+    TableEmployeeComponent,
 
   ],
   imports: [
@@ -31,10 +34,10 @@ import {RouterModule} from "@angular/router";
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatSnackBarModule,
     MatToolbarModule,
     MatIconModule,
     RouterModule,
+    MatTableModule
   ],
   exports: [
     NavbarComponent,
@@ -44,7 +47,8 @@ import {RouterModule} from "@angular/router";
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatSnackBarModule,
+    MatTableModule,
+    TableEmployeeComponent
   ]
 })
 export class ComponentsModule { }

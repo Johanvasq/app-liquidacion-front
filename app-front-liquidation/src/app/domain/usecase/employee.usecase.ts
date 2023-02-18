@@ -28,7 +28,7 @@ export class EmployeeUseCase{
   }
 
   updateEmployee(model : IUpdateEmployeeModel)
-    : Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
+    : Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]>{
     return this.employeeGateway.updateEmployee(model).pipe(
       catchError(error => {
         const errorResponse: IResponseExceptionModel = {
@@ -40,7 +40,7 @@ export class EmployeeUseCase{
     );
   }
 
-  findEmployee(id : string) : Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
+  findEmployee(id : string) : Observable<IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]>{
     return this.employeeGateway.findEmployee(id).pipe(
       catchError(error => {
         const errorResponse: IResponseExceptionModel = {
@@ -53,7 +53,7 @@ export class EmployeeUseCase{
   }
 
   findEmployeeBySalaryRange(model : IPaginationEmployeeModel)
-    : Observable<IEmployeePageResponse | IResponseExceptionModel | IResponseExceptionModel[] | null>{
+    : Observable<IEmployeePageResponse | IResponseExceptionModel | IResponseExceptionModel[]>{
     return this.employeeGateway.findEmployeeBySalaryRange(model).pipe(
       catchError(error => {
         const errorResponse: IResponseExceptionModel = {

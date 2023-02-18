@@ -4,6 +4,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {IResponseExceptionModel} from "../../../domain/models/exceptions/exception.model";
 import {EmployeeUseCase} from "../../../domain/usecase/employee.usecase";
 import {IEmployeeModel} from "../../../domain/models/employee/employee.model";
+import {ErrorsUseCase} from "../../../domain/usecase/errors.usecase";
 
 /**
  * Validate Range of provided date
@@ -29,7 +30,10 @@ export class RegisterFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private _snackBar: MatSnackBar, private employeeUseCase: EmployeeUseCase) {
+  constructor(private formBuilder: FormBuilder,
+              private _snackBar: MatSnackBar,
+              private employeeUseCase: EmployeeUseCase,
+              private errors: ErrorsUseCase) {
     this.form = this.formBuilder.group({
       name: ["", [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-Z0-9 ]*$')]],
       identification: ["", [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
@@ -62,37 +66,11 @@ export class RegisterFormComponent implements OnInit {
         });
         this.form.reset();
       } else {
-        this.error(result);
+        this.errors.error(result);
       }
     })
   }
 
-  error(error: IEmployeeModel | IResponseExceptionModel | IResponseExceptionModel[]) {
-    if (Array.isArray(error)) {
-      let message = "";
-      for (let err of error) {
-        message = message.concat(`${err.message}<br><br>`);
-      }
-      this._snackBar.open(`${message}`, "", {
-        duration: 5000,
-        horizontalPosition: "center",
-        verticalPosition: "top"
-      });
-    } else if ("message" in error) {
-      this._snackBar.open(`${error.message}`, "", {
-        duration: 5000,
-        horizontalPosition: "center",
-        verticalPosition: "top"
-      });
-    } else {
-      this._snackBar.open("An error occurred while saving the employee", "",
-        {
-          duration: 5000,
-          horizontalPosition: "center",
-          verticalPosition: "top"
-        });
-    }
-  }
 
   formatDate(date: string): string {
     let d = new Date(date);
