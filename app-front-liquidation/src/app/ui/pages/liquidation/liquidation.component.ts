@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./liquidation.component.css']
 })
 export class LiquidationComponent implements OnInit {
+  page  : string = "Liquidation";
 
   constructor() { }
 
