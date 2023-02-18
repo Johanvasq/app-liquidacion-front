@@ -1,0 +1,26 @@
+.vertical-toolbar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start;
+  padding-top: 3%;
+  width: 20vh;
+  align-content: center;
+  -webkit-box-shadow: 14px 12px 58px 1px rgba(0,0,0,0.29);
+  -moz-box-shadow: 14px 12px 58px 1px rgba(0,0,0,0.29);
+  box-shadow: 14px 12px 58px 1px rgba(0,0,0,0.29);
+
+}
+.title{
+  font-weight: normal;
+  font-size: 25pt;
+
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+button{
+  width: 80%;
+  margin-top: 5%;
+}

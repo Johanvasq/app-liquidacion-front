@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import {DomainModule} from "../../domain/domain.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LiquidationGateway} from "../../domain/models/gateways/liquidation.gateway";
 import {LiquidationService} from "../../infrastructure/driven_adapter/liquidation/liquidation.service";
 import {EmployeeGateway} from "../../domain/models/gateways/employee.gateway";
@@ -30,12 +29,12 @@ import {ComponentsModule} from "../components/components.module";
     PagesRoutingModule,
     HttpClientModule,
     DomainModule,
-    FormsModule,
-    ReactiveFormsModule,
     ComponentsModule
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    EmployeesComponent,
+    LiquidationComponent
   ],
   providers: [
     {provide: LiquidationGateway, useClass: LiquidationService},

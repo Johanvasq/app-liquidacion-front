@@ -14,7 +14,7 @@ import {SalaryUseCase} from "./usecase/salary.usecase";
   providers: [
     EmployeeUseCase,
     LiquidationUseCase,
-    SalaryUseCase
+    SalaryUseCase,
   ]
 })
 export class DomainModule { }
