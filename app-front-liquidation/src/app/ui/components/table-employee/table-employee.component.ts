@@ -12,7 +12,7 @@ import {ErrorsUseCase} from "../../../domain/usecase/errors.usecase";
   styleUrls: ['./table-employee.component.css']
 })
 export class TableEmployeeComponent implements OnInit {
-  displayedColumns: string[] = ['identification', 'name', 'salary'];
+  displayedColumns: string[] = ['identification', 'name', 'salary', 'state', 'actions'];
   dataSource: IEmployeeModel[] = [];
   constructor(private formBuilder: FormBuilder,
               private _snackBar: MatSnackBar,

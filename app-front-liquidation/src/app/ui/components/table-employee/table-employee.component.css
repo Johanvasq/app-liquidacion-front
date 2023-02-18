@@ -2,3 +2,22 @@ table {
   width: 100%;
   margin-top: 20px;
 }
+.icon-link {
+  margin-right: 16px;
+  transition: transform 0.2s;
+  color: #1f516f;
+  cursor: pointer;
+}
+.icon-link:hover{
+  color: #3f51b5;
+}
+.icon-link:active{
+  color: #3f51b5;
+}
+.mat-icon:hover {
+  transform: scale(1.2);
+}
+.mat-icon:active {
+   transform: scale(1.2);
+ }
+
