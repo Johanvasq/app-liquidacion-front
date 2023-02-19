@@ -26,6 +26,7 @@ import {MatNativeDateModule} from "@angular/material/core";
 import { LiquidateEmployeeComponent } from './liquidate-employee/liquidate-employee.component';
 import {MatSelectModule} from '@angular/material/select';
 import { LiquidationInformationComponent } from './liquidation-information/liquidation-information.component';
+import { HeroBlockComponent } from './hero-block/hero-block.component';
 
 
 
@@ -41,6 +42,7 @@ import { LiquidationInformationComponent } from './liquidation-information/liqui
     TableLiquidationComponent,
     LiquidateEmployeeComponent,
     LiquidationInformationComponent,
+    HeroBlockComponent,
 
 
   ],
@@ -82,7 +84,8 @@ import { LiquidationInformationComponent } from './liquidation-information/liqui
     EmployeeInformationComponent,
     TableLiquidationComponent,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    HeroBlockComponent
   ],
   providers: [
     MatDatepickerModule,
