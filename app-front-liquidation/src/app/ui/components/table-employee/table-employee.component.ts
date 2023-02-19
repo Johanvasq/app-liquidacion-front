@@ -9,6 +9,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import {UpdateEmployeeComponent} from "../update-employee/update-employee.component";
 import {SalaryHistoryComponent} from "../salary-history/salary-history.component";
+import {EmployeeInformationComponent} from "../employee-information/employee-information.component";
 
 
 @Component({
@@ -100,6 +101,12 @@ export class TableEmployeeComponent implements OnInit {
 
   salaryHistory(id : number) : void{
     this.dialog.open(SalaryHistoryComponent, {
+      data: { id : id.toString() }
+    });
+  }
+
+  detailsEmployee(id : number) : void{
+    this.dialog.open(EmployeeInformationComponent, {
       data: { id : id.toString() }
     });
   }

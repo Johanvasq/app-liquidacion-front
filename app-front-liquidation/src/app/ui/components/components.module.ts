@@ -19,6 +19,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { SalaryHistoryComponent } from './salary-history/salary-history.component';
+import { EmployeeInformationComponent } from './employee-information/employee-information.component';
 
 
 
@@ -32,6 +33,7 @@ import { SalaryHistoryComponent } from './salary-history/salary-history.componen
     TableEmployeeComponent,
     UpdateEmployeeComponent,
     SalaryHistoryComponent,
+    EmployeeInformationComponent,
 
   ],
   imports: [
@@ -64,7 +66,8 @@ import { SalaryHistoryComponent } from './salary-history/salary-history.componen
     MatPaginatorModule,
     MatSliderModule,
     MatDialogModule,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    EmployeeInformationComponent
   ]
 })
 export class ComponentsModule { }
