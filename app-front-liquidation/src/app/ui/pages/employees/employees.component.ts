@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {RegisterFormComponent} from "../../components/register-form/register-form.component";
 
 @Component({
   selector: 'app-employees',
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeesComponent implements OnInit {
   page  : string = "Employees";
 
-  constructor() { }
+  constructor(private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openSave(): void{
+    this.dialogRef.open(RegisterFormComponent)
+  }
+
+  onNoClick(): void {
+    this.dialogRef.closeAll();
   }
 
 }

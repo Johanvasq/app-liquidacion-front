@@ -15,6 +15,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { LiquidationComponent } from './liquidation/liquidation.component';
 import {HomeComponent} from "./home/home.component";
 import {ComponentsModule} from "../components/components.module";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -24,13 +25,14 @@ import {ComponentsModule} from "../components/components.module";
     EmployeesComponent,
     LiquidationComponent
   ],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-    HttpClientModule,
-    DomainModule,
-    ComponentsModule
-  ],
+    imports: [
+        CommonModule,
+        PagesRoutingModule,
+        HttpClientModule,
+        DomainModule,
+        ComponentsModule,
+        MatIconModule
+    ],
   exports: [
     HomeComponent,
     EmployeesComponent,

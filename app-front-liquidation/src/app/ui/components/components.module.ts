@@ -15,6 +15,11 @@ import {MatTableModule} from '@angular/material/table';
 import { TableEmployeeComponent } from './table-employee/table-employee.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+
+
 
 @NgModule({
   declarations: [
@@ -22,6 +27,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     WelcomeBarComponent,
     RegisterFormComponent,
     TableEmployeeComponent,
+    UpdateEmployeeComponent,
 
   ],
   imports: [
@@ -36,7 +42,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    MatSliderModule,
+    MatDialogModule
   ],
   exports: [
     NavbarComponent,
@@ -49,7 +57,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     TableEmployeeComponent,
     MatTooltipModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSliderModule,
+    MatDialogModule
   ]
 })
 export class ComponentsModule { }

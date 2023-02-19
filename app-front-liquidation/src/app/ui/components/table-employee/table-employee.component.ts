@@ -6,7 +6,7 @@ import {FormBuilder} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ErrorsUseCase} from "../../../domain/usecase/errors.usecase";
 import {MatTableDataSource} from "@angular/material/table";
-import {MatPaginator} from "@angular/material/paginator";
+
 
 @Component({
   selector: 'app-table-employee',
@@ -18,10 +18,13 @@ export class TableEmployeeComponent implements OnInit {
   employee: IEmployeeModel[] = [];
   dataSource = new MatTableDataSource<IEmployeeModel>(this.employee);
 
+
   page : number = 1;
   totalPages : number = 1;
 
   recordsPage : number = 5;
+  minSalary : number = 1160000;
+  maxSalary : number = 7000000;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -77,12 +80,17 @@ export class TableEmployeeComponent implements OnInit {
 
   onRecordsPageChange(){
     let model: IPaginationEmployeeModel = {
+      maxRangeSalary: this.maxSalary <= 7000000 && this.maxSalary >= 1160000 ? this.maxSalary : 7000000,
+      minRangeSalary: this.minSalary <= 7000000 && this.minSalary >= 1160000 ? this.minSalary : 7000000,
       recordsPerPage: this.recordsPage,
       page: this.page
     }
     this.findEmployees(model);
   }
 
+  edit(id : number){
+    console.log(id);
+  }
 
 
 }
