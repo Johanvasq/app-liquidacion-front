@@ -21,6 +21,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 
 
 
+
+
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -59,7 +61,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     MatTooltipModule,
     MatPaginatorModule,
     MatSliderModule,
-    MatDialogModule
+    MatDialogModule,
+    UpdateEmployeeComponent
   ]
 })
 export class ComponentsModule { }

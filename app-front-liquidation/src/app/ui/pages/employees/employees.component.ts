@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {RegisterFormComponent} from "../../components/register-form/register-form.component";
+import {UpdateEmployeeComponent} from "../../components/update-employee/update-employee.component";
 
 @Component({
   selector: 'app-employees',

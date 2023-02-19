@@ -1,44 +1,17 @@
 <div class="body">
   <div class="form">
-    <h1>Save a new employee</h1>
+    <h1>Update employee: {{id}}</h1>
     <form [formGroup]="form" (ngSubmit)="updateEmployee()">
       <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput autocomplete="off"  formControlName="name"  [disabled]="true">
-      </mat-form-field>
-
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Identification</mat-label>
-        <input matInput autocomplete="off"  formControlName="identification" [disabled]="true">
-      </mat-form-field>
-
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Last Position</mat-label>
-        <input type="text" matInput  autocomplete="off" formControlName="position" [disabled]="true">
-      </mat-form-field>
-
-      <mat-form-field class="form-field" appearance="fill">
         <mat-label>New Position</mat-label>
-        <input type="text" matInput  autocomplete="off" formControlName="newPosition" [disabled]="true">
-      </mat-form-field>
-
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Last salary</mat-label>
-        <input min="1160000" max="7000000"  placeholder="$1.160.000" type="number" matInput autocomplete="off"
-               formControlName="salary" [disabled]="true">
-        <span class="validity"></span>
+        <input type="text" matInput  autocomplete="off" formControlName="newPosition">
       </mat-form-field>
 
       <mat-form-field class="form-field" appearance="fill">
         <mat-label>New salary</mat-label>
         <input min="1160000" max="7000000"  placeholder="$1.160.000" type="number" matInput autocomplete="off"
-               formControlName="newSalary" [disabled]="true">
+               formControlName="newSalary" >
         <span class="validity"></span>
-      </mat-form-field>
-
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Last update</mat-label>
-        <input type="text" matInput autocomplete="off" formControlName="lastUpdate" [disabled]="true">
       </mat-form-field>
 
       <mat-form-field class="form-field" appearance="fill">
@@ -46,7 +19,7 @@
         <input type="date" matInput autocomplete="off" formControlName="modificationDay">
       </mat-form-field>
 
-      <button type="submit" class="form-field button" mat-raised-button color="primary" [disabled]="form.invalid">Save
+      <button type="submit" class="form-field button" mat-raised-button color="primary" [disabled]="form.invalid">Update
       </button>
     </form>
   </div>

@@ -5,6 +5,8 @@ import {LiquidationUseCase} from "./usecase/liquidation.usecase";
 import {SalaryUseCase} from "./usecase/salary.usecase";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ErrorsUseCase} from "./usecase/errors.usecase";
+import {ValidationsUseCase} from "./usecase/validations.usecase";
+import {ToolsUseCase} from "./usecase/tools.usecase";
 
 
 
@@ -19,7 +21,9 @@ import {ErrorsUseCase} from "./usecase/errors.usecase";
     EmployeeUseCase,
     LiquidationUseCase,
     SalaryUseCase,
-    ErrorsUseCase
+    ErrorsUseCase,
+    ValidationsUseCase,
+    ToolsUseCase
   ],
   exports: [
     MatSnackBarModule

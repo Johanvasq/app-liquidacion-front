@@ -6,6 +6,8 @@ import {FormBuilder} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ErrorsUseCase} from "../../../domain/usecase/errors.usecase";
 import {MatTableDataSource} from "@angular/material/table";
+import {MatDialog} from "@angular/material/dialog";
+import {UpdateEmployeeComponent} from "../update-employee/update-employee.component";
 
 
 @Component({
@@ -30,6 +32,7 @@ export class TableEmployeeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private _snackBar: MatSnackBar,
               private employeeUseCase: EmployeeUseCase,
+              public dialog: MatDialog,
               private errors: ErrorsUseCase) {
   }
 
@@ -88,8 +91,10 @@ export class TableEmployeeComponent implements OnInit {
     this.findEmployees(model);
   }
 
-  edit(id : number){
-    console.log(id);
+  edit(id : number) : void{
+    this.dialog.open(UpdateEmployeeComponent, {
+      data: { id : id.toString() }
+    });
   }
 
 
