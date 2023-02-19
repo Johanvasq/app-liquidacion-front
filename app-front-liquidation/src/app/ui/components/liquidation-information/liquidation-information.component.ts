@@ -31,7 +31,7 @@ export class LiquidationInformationComponent implements OnInit {
 
   findLiquidation(id:string){
     this.liquidationUseCase.findLiquidationOfEmployee(id).subscribe(result => {
-      if(result && "name" in result) {
+      if("employeeName" in result) {
         this.liquidation = result;
       } else {
         this.error.error(result);
@@ -49,7 +49,7 @@ export class LiquidationInformationComponent implements OnInit {
       const height = (canvas.height * width) / canvas.width;
 
       pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-      pdf.save('component.pdf');
+      pdf.save('settlement-voucher.pdf');
       this.dialogRef.close();
     });
   }

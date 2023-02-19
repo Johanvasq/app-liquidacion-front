@@ -31,7 +31,7 @@ export class LiquidationUseCase{
   }
 
   findLiquidationOfEmployee(id : string)
-    : Observable<ILiquidationModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
+    : Observable<ILiquidationModel | IResponseExceptionModel | IResponseExceptionModel[]>{
     return this.liquidationGateway.findLiquidationOfEmployee(id).pipe(
       catchError(error => {
         const errorResponse: IResponseExceptionModel = {
