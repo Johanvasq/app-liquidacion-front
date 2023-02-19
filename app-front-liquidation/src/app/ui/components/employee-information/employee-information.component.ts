@@ -29,7 +29,7 @@ export class EmployeeInformationComponent implements OnInit {
     this.employeeUseCase.findEmployee(id).subscribe(result => {
       if(result && "name" in result) {
         if (result.position == null){
-          result.position = "a";
+          result.position = "Not found";
         }
         this.employee = result;
       } else {

@@ -1,25 +1,36 @@
 <div class="container">
   <h1>Employee details</h1>
   <h4>
-    Name: <p>{{employee.name}}</p>
+    Name: <p>{{employee?.name}}</p>
   </h4>
+  <br>
   <h4>
-    Identification: <p>{{employee.id}}</p>
+    Identification: <p>{{employee?.id}}</p>
   </h4>
+  <br>
+
   <h4>
-    Contract start: <p>{{employee.contractStart}}</p>
+    Contract start: <p>{{employee?.contractStart}}</p>
   </h4>
+  <br>
+
   <h4>
-    Position: <p>{{employee.position}}</p>
+    Position: <p>{{employee?.position}}</p>
   </h4>
+  <br>
+
   <h4>
-    Salary: <p>{{employee.currentSalary | currency:'':'symbol':'1.0-0'  }}</p>
+    Salary: <p>{{employee?.currentSalary | currency:'':'symbol':'1.0-0'  }}</p>
   </h4>
+  <br>
+
   <h4>
-    State: <p *ngIf="employee.state">Active</p><p *ngIf="!employee.state">Inactive</p>
+    State: <p *ngIf="employee?.state">Active</p><p *ngIf="!employee?.state">Inactive</p>
   </h4>
+  <br>
+
   <h4>
-    Last update: <p>{{employee.lastSalaryUpdated}}</p>
+    Last update: <p>{{employee?.lastSalaryUpdated}}</p>
   </h4>
 
 
