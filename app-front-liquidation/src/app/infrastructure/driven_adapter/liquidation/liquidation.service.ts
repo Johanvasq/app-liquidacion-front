@@ -18,7 +18,7 @@ export class LiquidationService extends LiquidationGateway{
 
   private httpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
 
-  private apiUrl = "/api/liquidation";
+  private apiUrl = "/api/employee/liquidation";
   constructor(private http: HttpClient) {
     super()
   }

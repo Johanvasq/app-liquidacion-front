@@ -33,7 +33,7 @@ export interface ILiquidationPageResponse{
   totalPages : number;
   results : number;
   remainingResults : number;
-  employees?: ILiquidationModel[];
+  liquidationPaymentResponseDTO?: ILiquidationModel[];
 }
 
 export interface ILiquidationRequestModel{

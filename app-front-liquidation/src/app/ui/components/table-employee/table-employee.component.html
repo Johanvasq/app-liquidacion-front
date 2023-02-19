@@ -1,5 +1,8 @@
-<div class="cont">
-  <div class="filters">
+<h3 *ngIf="employee.length == 0">
+  No employees found, try to enter a new employee or modify the search range.
+</h3>
+<div class="cont" >
+  <div class="filters" >
     <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Julian" #input autocomplete="off">

@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { SalaryHistoryComponent } from './salary-history/salary-history.component';
 import { EmployeeInformationComponent } from './employee-information/employee-information.component';
+import { TableLiquidationComponent } from './table-liquidation/table-liquidation.component';
 
 
 
@@ -34,6 +35,7 @@ import { EmployeeInformationComponent } from './employee-information/employee-in
     UpdateEmployeeComponent,
     SalaryHistoryComponent,
     EmployeeInformationComponent,
+    TableLiquidationComponent,
 
   ],
   imports: [
@@ -52,22 +54,23 @@ import { EmployeeInformationComponent } from './employee-information/employee-in
     MatSliderModule,
     MatDialogModule
   ],
-  exports: [
-    NavbarComponent,
-    WelcomeBarComponent,
-    RegisterFormComponent,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    TableEmployeeComponent,
-    MatTooltipModule,
-    MatPaginatorModule,
-    MatSliderModule,
-    MatDialogModule,
-    UpdateEmployeeComponent,
-    EmployeeInformationComponent
-  ]
+    exports: [
+        NavbarComponent,
+        WelcomeBarComponent,
+        RegisterFormComponent,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        TableEmployeeComponent,
+        MatTooltipModule,
+        MatPaginatorModule,
+        MatSliderModule,
+        MatDialogModule,
+        UpdateEmployeeComponent,
+        EmployeeInformationComponent,
+        TableLiquidationComponent
+    ]
 })
 export class ComponentsModule { }
