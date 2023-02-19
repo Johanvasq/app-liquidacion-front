@@ -18,7 +18,7 @@ export class LiquidationUseCase{
   }
 
   createLiquidationOfEmployee(model : ILiquidationRequestModel)
-    : Observable<ILiquidationModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
+    : Observable<ILiquidationModel | IResponseExceptionModel | IResponseExceptionModel[]>{
     return this.liquidationGateway.createLiquidationOfEmployee(model).pipe(
       catchError(error => {
         const errorResponse: IResponseExceptionModel = {

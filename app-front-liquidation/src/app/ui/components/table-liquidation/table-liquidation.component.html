@@ -7,13 +7,21 @@
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Julian" #input autocomplete="off">
     </mat-form-field>
+
     <span class="example-spacer"></span>
-    <span class="paginationOf">Min salary: </span>
-    <input class="paginationOf input-range" type="date" [(ngModel)]="minDate"
-           (blur)="onRecordsPageChange()" [min]="1160000" [max]="7000000" value="minSalary">
-    <span class="paginationOf">Max salary: </span>
-    <input class="paginationOf input-range" type="date" [(ngModel)]="maxDate"
-           (blur)="onRecordsPageChange()" [min]="1160000" [max]="7000000" value="maxSalary">
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Enter a date range</mat-label>
+      <div class="date-input-container">
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate [(ngModel)]="minDate" placeholder="Start date" (blur)="onRecordsPageChange()">
+          <input matEndDate [(ngModel)]="maxDate" placeholder="End date" (blur)="onRecordsPageChange()">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      </div>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+
   </div>
   <div class="mat-elevation-z5">
     <table mat-table [dataSource]="dataSource" >
@@ -42,15 +50,10 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element" style="text-align: right">
-          <a class="icon-link" matTooltip="View employee information" (click)="detailsEmployee(element.id)">
+          <a class="icon-link" matTooltip="View employee information" (click)="detailsEmployee(element.employeeId)">
             <mat-icon>visibility</mat-icon>
           </a>
-          <a class="icon-link" matTooltip="Edit employee" (click)="edit(element.id)">
-            <mat-icon>edit</mat-icon>
-          </a>
-          <a class="icon-link" matTooltip="Employee salary history" (click)="salaryHistory(element.id)">
-            <mat-icon>list</mat-icon>
-          </a>
+
         </td>
       </ng-container>
 

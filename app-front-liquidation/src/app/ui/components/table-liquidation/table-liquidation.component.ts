@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {ErrorsUseCase} from "../../../domain/usecase/errors.usecase";
-import {
-  IPaginationEmployeeModel,
-  IPaginationLiquidationModel
-} from "../../../domain/models/pagination/pagination.model";
+import {IPaginationLiquidationModel} from "../../../domain/models/pagination/pagination.model";
 import {UpdateEmployeeComponent} from "../update-employee/update-employee.component";
 import {SalaryHistoryComponent} from "../salary-history/salary-history.component";
 import {EmployeeInformationComponent} from "../employee-information/employee-information.component";
@@ -26,12 +23,13 @@ export class TableLiquidationComponent implements OnInit {
   dataSource = new MatTableDataSource<ILiquidationModel>(this.liquidation);
 
 
-  page : number = 1;
-  totalPages : number = 1;
+  page: number = 1;
+  totalPages: number = 1;
 
-  recordsPage : number = 5;
-  minDate: Date = new Date('2015-01-01');
-  maxDate : Date = new Date('2100-01-01');
+  recordsPage: number = 5;
+  minDate: Date = new Date('2015-01-02');
+  maxDate: Date = new Date('2030-01-02');
+
 
 
   constructor(private formBuilder: FormBuilder,
@@ -43,7 +41,7 @@ export class TableLiquidationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findLiquidations({ page: 1 });
+    this.findLiquidations({page: 1});
   }
 
   findLiquidations(model: IPaginationLiquidationModel) {
@@ -63,7 +61,7 @@ export class TableLiquidationComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  nextPage(){
+  nextPage() {
     if (this.page < this.totalPages) {
       this.page += 1;
       let model: IPaginationLiquidationModel = {
@@ -74,7 +72,7 @@ export class TableLiquidationComponent implements OnInit {
     }
   }
 
-  afterPage(){
+  afterPage() {
     if (this.page > 1) {
       this.page -= 1;
       let model: IPaginationLiquidationModel = {
@@ -86,7 +84,9 @@ export class TableLiquidationComponent implements OnInit {
   }
 
 
-  onRecordsPageChange(){
+  onRecordsPageChange() {
+    console.log(this.maxDate)
+    console.log(this.minDate)
     let model: IPaginationLiquidationModel = {
       maxRangeDate:
         this.maxDate.getTime() <= new Date('2100-01-01').getTime()
@@ -104,21 +104,21 @@ export class TableLiquidationComponent implements OnInit {
     this.findLiquidations(model);
   }
 
-  edit(id : number) : void{
+  edit(id: number): void {
     this.dialog.open(UpdateEmployeeComponent, {
-      data: { id : id.toString() }
+      data: {id: id.toString()}
     });
   }
 
-  salaryHistory(id : number) : void{
+  salaryHistory(id: number): void {
     this.dialog.open(SalaryHistoryComponent, {
-      data: { id : id.toString() }
+      data: {id: id.toString()}
     });
   }
 
-  detailsEmployee(id : number) : void{
+  detailsEmployee(id: number): void {
     this.dialog.open(EmployeeInformationComponent, {
-      data: { id : id.toString() }
+      data: {id: id.toString()}
     });
   }
 

@@ -94,3 +94,8 @@ mat-slider {
   align-items: center;
   flex-wrap: wrap;
 }
+.date-input-container {
+  display: flex;
+  align-items: center;
+}
+

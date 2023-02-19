@@ -1,8 +1,8 @@
 <h3 *ngIf="employee.length == 0">
   No employees found, try to enter a new employee or modify the search range.
 </h3>
-<div class="cont" >
-  <div class="filters" >
+<div class="cont">
+  <div class="filters">
     <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Julian" #input autocomplete="off">
@@ -12,11 +12,11 @@
     <input class="paginationOf input-range" type="number" [(ngModel)]="minSalary"
            (blur)="onRecordsPageChange()" [min]="1160000" [max]="7000000" value="minSalary">
     <span class="paginationOf">Max salary: </span>
-      <input class="paginationOf input-range" type="number" [(ngModel)]="maxSalary"
-             (blur)="onRecordsPageChange()" [min]="1160000" [max]="7000000" value="maxSalary">
+    <input class="paginationOf input-range" type="number" [(ngModel)]="maxSalary"
+           (blur)="onRecordsPageChange()" [min]="1160000" [max]="7000000" value="maxSalary">
   </div>
   <div class="mat-elevation-z5">
-    <table mat-table [dataSource]="dataSource" >
+    <table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="identification">
         <th mat-header-cell *matHeaderCellDef> No. Identification</th>
@@ -56,6 +56,9 @@
           <a class="icon-link" matTooltip="Employee salary history" (click)="salaryHistory(element.id)">
             <mat-icon>list</mat-icon>
           </a>
+          <a class="icon-link" matTooltip="Liquidate employee" (click)="liquidateEmployee(element.id)" style="color: #e15639">
+            <mat-icon>person_remove</mat-icon>
+          </a>
         </td>
       </ng-container>
 
@@ -67,8 +70,12 @@
       <input class="paginationOf input-border" type="number" [(ngModel)]="recordsPage"
              (ngModelChange)="onRecordsPageChange()" [min]="5" [max]="15" value="recordsPage">
       <span class="paginationOf">{{page}} of {{totalPages}}</span>
-      <a (click)="afterPage()" ><mat-icon class="navigation">arrow_back_ios</mat-icon></a>
-      <a (click)="nextPage()" ><mat-icon class="navigation">arrow_forward_ios</mat-icon></a>
+      <a (click)="afterPage()">
+        <mat-icon class="navigation">arrow_back_ios</mat-icon>
+      </a>
+      <a (click)="nextPage()">
+        <mat-icon class="navigation">arrow_forward_ios</mat-icon>
+      </a>
     </div>
   </div>
 
