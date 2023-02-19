@@ -18,6 +18,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { SalaryHistoryComponent } from './salary-history/salary-history.component';
 
 
 
@@ -30,6 +31,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     RegisterFormComponent,
     TableEmployeeComponent,
     UpdateEmployeeComponent,
+    SalaryHistoryComponent,
 
   ],
   imports: [

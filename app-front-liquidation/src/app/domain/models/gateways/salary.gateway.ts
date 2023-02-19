@@ -5,5 +5,5 @@ import {IResponseExceptionModel} from "../exceptions/exception.model";
 export abstract class SalaryGateway{
 
   abstract modificationSalariesEmployee(id : string)
-    : Observable<ISalaryModel | IResponseExceptionModel | IResponseExceptionModel[]>;
+    : Observable<ISalaryModel[] | IResponseExceptionModel | IResponseExceptionModel[]>;
 }

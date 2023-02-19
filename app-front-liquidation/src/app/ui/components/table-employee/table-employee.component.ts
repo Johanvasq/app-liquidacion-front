@@ -8,6 +8,7 @@ import {ErrorsUseCase} from "../../../domain/usecase/errors.usecase";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import {UpdateEmployeeComponent} from "../update-employee/update-employee.component";
+import {SalaryHistoryComponent} from "../salary-history/salary-history.component";
 
 
 @Component({
@@ -93,6 +94,12 @@ export class TableEmployeeComponent implements OnInit {
 
   edit(id : number) : void{
     this.dialog.open(UpdateEmployeeComponent, {
+      data: { id : id.toString() }
+    });
+  }
+
+  salaryHistory(id : number) : void{
+    this.dialog.open(SalaryHistoryComponent, {
       data: { id : id.toString() }
     });
   }

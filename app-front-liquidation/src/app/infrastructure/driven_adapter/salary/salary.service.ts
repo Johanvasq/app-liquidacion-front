@@ -18,8 +18,8 @@ export class SalaryService extends SalaryGateway{
     super();
   }
 
-  modificationSalariesEmployee(id: string): Observable<ISalaryModel | IResponseExceptionModel | IResponseExceptionModel[]> {
-    return this.http.get<ISalaryModel | IResponseExceptionModel |
+  modificationSalariesEmployee(id: string): Observable<ISalaryModel[] | IResponseExceptionModel | IResponseExceptionModel[]> {
+    return this.http.get<ISalaryModel[] | IResponseExceptionModel |
       IResponseExceptionModel[]>(`${this.apiUrl}/${id}`, {headers : this.httpHeaders}).pipe(
       catchError((error: HttpErrorResponse) => {
         return of(error.error);

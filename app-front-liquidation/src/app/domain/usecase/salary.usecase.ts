@@ -12,7 +12,7 @@ export class SalaryUseCase {
   }
 
   modificationSalariesEmployee(id : string)
-    : Observable<ISalaryModel | IResponseExceptionModel | IResponseExceptionModel[] | null>{
+    : Observable<ISalaryModel[] | IResponseExceptionModel | IResponseExceptionModel[]>{
     return this.salaryGateway.modificationSalariesEmployee(id).pipe(
       catchError(error => {
         const errorResponse: IResponseExceptionModel = {
