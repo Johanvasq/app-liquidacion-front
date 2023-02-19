@@ -13,7 +13,7 @@ export class ErrorsUseCase {
     if (Array.isArray(error)) {
       let message = "";
       for (let err of error) {
-        message = message.concat(`${err.message}<br><br>`);
+        message = message.concat(`${err.message}\n\n`);
       }
       this._snackBar.open(`${message}`, "", {
         duration: 5000,

@@ -33,3 +33,42 @@ table {
 .cont{
   margin-top: 20px;
 }
+
+.navigation{
+  transform: scale(0.7);
+  color: #848484;
+}
+.navigation:hover{
+  transform: scale(0.9);
+}
+.paginator {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+}
+
+.paginator .paginationOf {
+  display: inline-block;
+  color: #848484;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.paginator mat-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.input-border {
+  width: 40px;
+  border: none;
+  border-bottom: 1px solid ;
+  outline: none;
+
+}
+
+.input-border:focus {
+  outline: none;
+}

@@ -7,7 +7,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from "@angular/material/icon";
 import {RouterModule} from "@angular/router";
@@ -35,7 +35,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     RouterModule,
     MatTableModule,
     MatTooltipModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent,

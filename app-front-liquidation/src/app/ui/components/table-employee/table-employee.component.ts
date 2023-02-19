@@ -18,12 +18,11 @@ export class TableEmployeeComponent implements OnInit {
   employee: IEmployeeModel[] = [];
   dataSource = new MatTableDataSource<IEmployeeModel>(this.employee);
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  page : number = 1;
+  totalPages : number = 1;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  recordsPage : number = 5;
 
-  }
 
   constructor(private formBuilder: FormBuilder,
               private _snackBar: MatSnackBar,
@@ -32,10 +31,7 @@ export class TableEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let model: IPaginationEmployeeModel = {
-      page: 1
-    }
-    this.findEmployees(model);
+    this.findEmployees({ page: 1 });
   }
 
   findEmployees(model: IPaginationEmployeeModel) {
@@ -44,10 +40,7 @@ export class TableEmployeeComponent implements OnInit {
       if (result && "totalPages" in result && "results" in result && result.employees) {
         this.employee = result.employees;
         this.dataSource.data = result.employees;
-        this.dataSource.paginator!.pageIndex = 1;
-        this.dataSource.paginator!.length = result.results;
-        this.dataSource.paginator!.pageSize = 5;
-
+        this.totalPages = result.totalPages;
       } else {
         this.errors.error(result);
       }
@@ -59,15 +52,36 @@ export class TableEmployeeComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  handlePageEvent(){
-    let model: IPaginationEmployeeModel = {
-      recordsPerPage: this.dataSource.paginator?.pageSize,
-      page: this.dataSource.paginator!.pageIndex + 1
+  nextPage(){
+    if (this.page < this.totalPages) {
+      this.page += 1;
+      let model: IPaginationEmployeeModel = {
+        recordsPerPage: this.recordsPage,
+        page: this.page
+      };
+      this.findEmployees(model);
     }
-    this.findEmployees(model);
+  }
+
+  afterPage(){
+    if (this.page > 1) {
+      this.page -= 1;
+      let model: IPaginationEmployeeModel = {
+        recordsPerPage: this.recordsPage,
+        page: this.page
+      };
+      this.findEmployees(model);
+    }
   }
 
 
+  onRecordsPageChange(){
+    let model: IPaginationEmployeeModel = {
+      recordsPerPage: this.recordsPage,
+      page: this.page
+    }
+    this.findEmployees(model);
+  }
 
 
 
