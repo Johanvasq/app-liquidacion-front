@@ -13,12 +13,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {RouterModule} from "@angular/router";
 import {MatTableModule} from '@angular/material/table';
 import { TableEmployeeComponent } from './table-employee/table-employee.component';
-
-
-
-
-
-
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -37,7 +33,9 @@ import { TableEmployeeComponent } from './table-employee/table-employee.componen
     MatToolbarModule,
     MatIconModule,
     RouterModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule,
+    MatPaginatorModule
   ],
   exports: [
     NavbarComponent,
@@ -48,7 +46,9 @@ import { TableEmployeeComponent } from './table-employee/table-employee.componen
     MatButtonModule,
     ReactiveFormsModule,
     MatTableModule,
-    TableEmployeeComponent
+    TableEmployeeComponent,
+    MatTooltipModule,
+    MatPaginatorModule
   ]
 })
 export class ComponentsModule { }
