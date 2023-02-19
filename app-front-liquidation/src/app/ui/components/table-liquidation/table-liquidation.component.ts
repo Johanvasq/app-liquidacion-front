@@ -11,6 +11,7 @@ import {EmployeeInformationComponent} from "../employee-information/employee-inf
 import {ILiquidationModel} from "../../../domain/models/liquidation/liquidation.model";
 import {LiquidationUseCase} from "../../../domain/usecase/liquidation.usecase";
 import {ToolsUseCase} from "../../../domain/usecase/tools.usecase";
+import {LiquidationInformationComponent} from "../liquidation-information/liquidation-information.component";
 
 @Component({
   selector: 'app-table-liquidation',
@@ -29,7 +30,6 @@ export class TableLiquidationComponent implements OnInit {
   recordsPage: number = 5;
   minDate: Date = new Date('2015-01-02');
   maxDate: Date = new Date('2030-01-02');
-
 
 
   constructor(private formBuilder: FormBuilder,
@@ -85,18 +85,16 @@ export class TableLiquidationComponent implements OnInit {
 
 
   onRecordsPageChange() {
-    console.log(this.maxDate)
-    console.log(this.minDate)
     let model: IPaginationLiquidationModel = {
       maxRangeDate:
-        this.maxDate.getTime() <= new Date('2100-01-01').getTime()
-        && this.maxDate.getTime() >= new Date('2015-01-01').getTime() ?
-          this.tools.formatDate(this.maxDate.toString()) : this.tools.formatDate(new Date('2100-01-01').toString()),
+        this.maxDate?.getTime() <= new Date('2100-01-01').getTime()
+        && this.maxDate?.getTime() >= new Date('2015-01-01').getTime() ?
+          this.tools.formatDate(this.maxDate?.toString()) : this.tools.formatDate(new Date('2100-01-01').toString()),
 
       minRangeDate:
-        this.maxDate.getTime() <= new Date('2100-01-01').getTime()
-        && this.maxDate.getTime() >= new Date('2015-01-01').getTime() ?
-          this.tools.formatDate(this.maxDate.toString()) : this.tools.formatDate(new Date('2015-01-01').toString()),
+        this.minDate?.getTime() <= new Date('2100-01-01').getTime()
+        && this.minDate?.getTime() >= new Date('2015-01-01').getTime() ?
+          this.tools.formatDate(this.minDate?.toString()) : this.tools.formatDate(new Date('2015-01-01').toString()),
 
       recordsPerPage: this.recordsPage,
       page: this.page
@@ -104,20 +102,9 @@ export class TableLiquidationComponent implements OnInit {
     this.findLiquidations(model);
   }
 
-  edit(id: number): void {
-    this.dialog.open(UpdateEmployeeComponent, {
-      data: {id: id.toString()}
-    });
-  }
 
-  salaryHistory(id: number): void {
-    this.dialog.open(SalaryHistoryComponent, {
-      data: {id: id.toString()}
-    });
-  }
-
-  detailsEmployee(id: number): void {
-    this.dialog.open(EmployeeInformationComponent, {
+  detailsLiquidation(id: number): void {
+    this.dialog.open(LiquidationInformationComponent, {
       data: {id: id.toString()}
     });
   }

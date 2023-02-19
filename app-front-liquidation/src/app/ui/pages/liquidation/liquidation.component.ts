@@ -13,8 +13,5 @@ export class LiquidationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openLiquidation(){
-
-  }
 
 }

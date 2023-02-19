@@ -25,6 +25,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from "@angular/material/core";
 import { LiquidateEmployeeComponent } from './liquidate-employee/liquidate-employee.component';
 import {MatSelectModule} from '@angular/material/select';
+import { LiquidationInformationComponent } from './liquidation-information/liquidation-information.component';
+import html2canvas from "html2canvas";
 
 
 
@@ -39,6 +41,7 @@ import {MatSelectModule} from '@angular/material/select';
     EmployeeInformationComponent,
     TableLiquidationComponent,
     LiquidateEmployeeComponent,
+    LiquidationInformationComponent,
 
 
   ],
