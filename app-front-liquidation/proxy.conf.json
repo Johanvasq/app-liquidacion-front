@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://localhost:8087",
+    "target": "${API_BASE_URL}",
     "secure": false,
     "changeOrigin": false,
     "pathRewrite": {
@@ -9,5 +9,4 @@
     "logLevel": "debug"
   }
 }
-
 
