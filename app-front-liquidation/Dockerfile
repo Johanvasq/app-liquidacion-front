@@ -1,6 +1,6 @@
 FROM node:14 as app-node
 WORKDIR /app-front
-COPY package*.json /app-front/
+COPY ./package*.json ./
 RUN npm i
 COPY . .
 RUN npm run build
